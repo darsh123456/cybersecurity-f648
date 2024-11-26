@@ -1,7 +1,7 @@
-[--solutionname--] Details
+[cybersecurity-f648] Details
 ============================
 
-Generated On: --datetime-- UTC
+Generated On: 2024-11-26 19:01:44 UTC
 
 TML Solution DAG Parameters' Details: User Chosen Parametets
 ----------------------------
@@ -14,19 +14,19 @@ STEP 1: Get TML Core Params: `tml_system_step_1_getparams_dag <https://tml.readt
    * - **User Parameter**
      - **Chosen Value**
    * - solutionname
-     - --solutionname--
+     - cybersecurity-f648
    * - solutiontitle
-     - --solutiontitle--
+     - My Solution Title
    * - solutiondescription
-     - --solutiondescription--
+     - This is an awesome real-time solution built by TSS
    * - brokerhost
-     - --brokerhost--
+     - 127.0.0.1
    * - brokerport
-     - --brokerport--
+     - 9092
    * - cloudusername
-     - --cloudusername--
+     - None
    * - ingestdatamethod
-     - --ingestdatamethod--
+     - MQTT
  
 STEP 2: Create Kafka Topics: `tml_system_step_2_kafka_createtopic_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-2-create-kafka-topics-tml-system-step-2-kafka-createtopic-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -36,29 +36,29 @@ STEP 2: Create Kafka Topics: `tml_system_step_2_kafka_createtopic_dag <https://t
    * - **User Parameter**
      - **Chosen Value**
    * - companyname
-     - --companyname--
+     - Otics
    * - myname
-     - --myname--
+     - Sebastian
    * - myemail
-     - --myemail--
+     - Sebastian.Maurice
    * - mylocation
-     - --mylocation--
+     - Toronto
    * - replication
-     - --replication--
+     - 1
    * - numpartitions
-     - --numpartitions--
+     - 1
    * - enabletls
-     - --enabletls--
+     - 1
    * - microserviceid
-     - --microserviceid--
+     - 
    * - raw_data_topic
-     - --raw_data_topic--
+     - cisco-network-mainstream
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - cisco-network-preprocess
    * - ml_data_topic
-     - --ml_data_topic--
+     - ml-data
    * - prediction_data_topic
-     - --prediction_data_topic--
+     - prediction-data
 
 STEP 3: `Produce to Kafka Topics <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-3-produce-to-kafka-topics>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -68,25 +68,25 @@ STEP 3: `Produce to Kafka Topics <https://tml.readthedocs.io/en/latest/tmlbuilds
    * - **User Parameter**
      - **Chosen Value**
    * - PRODUCETYPE
-     - --PRODUCETYPE--
+     - MQTT
    * - TOPIC
-     - --TOPIC--
+     - cisco-network-mainstream
    * - PORT
-     - --PORT--
+     - 38533
    * - IDENTIFIER
-     - --IDENTIFIER--
+     - MQTT Subscription Topic: tml/cybersecurity
    * - HTTPADDR
-     - --HTTPADDR--
+     - https://
    * - FROMHOST
-     - --FROMHOST--
+     - darsh,127.0.1.1
    * - TOHOST
-     - --TOHOST--
+     - 127.0.1.1
    * - CLIENTPORT
-     - --CLIENTPORT--
+     - 8883
    * - TSS_CLIENTPORT
-     - --TSSCLIENTPORT--
+     - 8883
    * - TML_CLIENTPORT
-     - --TMLCLIENTPORT--
+     - 8883
 
 STEP 4: Preprocesing Data: `tml-system-step-4-kafka-preprocess-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-4-preprocesing-data-tml-system-step-4-kafka-preprocess-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,33 +96,33 @@ STEP 4: Preprocesing Data: `tml-system-step-4-kafka-preprocess-dag <https://tml.
    * - **User Parameter**
      - **Chosen Value**
    * - raw_data_topic
-     - --raw_data_topic--
+     - cisco-network-mainstream
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - cisco-network-preprocess
    * - preprocessconditions
-     - --preprocessconditions--
+     - 
    * - delay
-     - --delay--
+     - 70
    * - array
-     - --array--
+     - 0
    * - saveasarray
-     - --saveasarray--
+     - 1
    * - topicid
-     - --topicid--
+     - -999
    * - rawdataoutput
-     - --rawdataoutput--
+     - 1
    * - asynctimeout
-     - --asynctimeout--
+     - 120
    * - timedelay
-     - --timedelay--
+     - 0
    * - preprocesstypes
-     - --preprocesstypes--
+     - min,max,trend,anomprob,variance,avg
    * - pathtotmlattrs
      - --pathtotmlattrs--
    * - identifier
-     - --identifier--
+     - Detect potential cyber attacks and monitor network
    * - jsoncriteria
-     - --jsoncriteria--
+     - uid=hostName,filter:allrecords~subtopics=hostName,hostName,hostName~values=inboundpackets,outboundpackets,pingStatus~identifiers=inboundpackets,outboundpackets,pingStatus~datetime=lastUpdated~msgid=~latlong=
 
 STEP 4b: Preprocesing Data: `tml-system-step-4b-kafka-preprocess-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-4b-preprocesing-data-tml-system-step-4b-kafka-preprocess-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,41 +168,41 @@ STEP 5: Entity Based Machine Learning : `tml-system-step-5-kafka-machine-learnin
    * - **User Parameter**
      - **Chosen Value**
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - cisco-network-preprocess
    * - ml_data_topic
-     - --ml_data_topic--
+     - ml-data
    * - modelruns
-     - --modelruns--
+     - 100
    * - offset
-     - --offset--
+     - -1
    * - islogistic
-     - --islogistic--
+     - 0
    * - networktimeout
-     - --networktimeout--
+     - 600
    * - modelsearchtuner
-     - --modelsearchtuner--
+     - 90
    * - processlogic
-     - --processlogic--
+     - 
    * - dependentvariable
-     - --dependentvariable--
+     - 
    * - independentvariables
-     - --independentvariables--
+     - 
    * - rollbackoffsets
-     - --rollbackoffsets--
+     - 500
    * - topicid
-     - --topicid--
+     - -999
    * - consumefrom
-     - --consumefrom--
+     - 
    * - fullpathtotrainingdata
-     - --fullpathtotrainingdata--
+     - /Viper-ml/viperlogs/<choose foldername>
    * - transformtype
-     - --transformtype--
+     - 
    * - sendcoefto
-     - --sendcoefto--
+     - 
    * - coeftoprocess
-     - --coeftoprocess--
+     - 
    * - coefsubtopicnames
-     - --coefsubtopicnames--
+     - 
 
 STEP 6: Entity Based Predictions: `tml-system-step-6-kafka-predictions-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-6-entity-based-predictions-tml-system-step-6-kafka-predictions-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -212,29 +212,29 @@ STEP 6: Entity Based Predictions: `tml-system-step-6-kafka-predictions-dag <http
    * - **User Parameter**
      - **Chosen Value**
    * - preprocess_data_topic
-     - --preprocess_data_topic--
+     - cisco-network-preprocess
    * - ml_prediction_topic
-     - --ml_prediction_topic--
+     - iot-ml-prediction-results-output
    * - streamstojoin
-     - --streamstojoin--
+     - Voltage_preprocessed_AnomProb,Current_preprocessed_AnomProb
    * - inputdata
-     - --inputdata--
+     - 
    * - consumefrom
-     - --consumefrom2--
+     - 
    * - offset
-     - --offset--
+     - -1
    * - delay
-     - --delay--
+     - 70
    * - usedeploy
-     - --usedeploy--
+     - 1
    * - networktimeout
-     - --networktimeout--
+     - 600
    * - maxrows
-     - --maxrows--
+     - 50
    * - topicid
-     - --topicid--
+     - -999
    * - pathtoalgos
-     - --pathtoalgos--
+     - 
 
 STEP 7: Real-Time Visualization: `tml-system-step-7-kafka-visualization-dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-7-real-time-visualization-tml-system-step-7-kafka-visualization-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -244,21 +244,21 @@ STEP 7: Real-Time Visualization: `tml-system-step-7-kafka-visualization-dag <htt
    * - **User Parameter**
      - **Chosen Value**
    * - vipervizport
-     - --vipervizport--
+     - 9005
    * - topic
-     - --topic--
+     - cisco-network-preprocess,cisco-network-privategpt
    * - dashboardhtml
-     - --dashboardhtml--
+     - tml-cisco-network-privategpt-monitor.html
    * - secure
-     - --secure--
+     - 1
    * - offset
-     - --offset--
+     - -1
    * - append
-     - --append--
+     - 0
    * - chip
-     - --chip--
+     - amd64
    * - rollbackoffset
-     - --rollbackoffset--
+     - 400
 
 STEP 8: `tml_system_step_8_deploy_solution_to_docker_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-8-deploy-tml-solution-to-docker-tml-system-step-8-deploy-solution-to-docker-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -267,9 +267,31 @@ STEP 8: `tml_system_step_8_deploy_solution_to_docker_dag <https://tml.readthedoc
    * - **User Parameter**
      - **Chosen Value**
    * - Docker Container
-     - --dockercontainer--
+     - djmodessa1726/cybersecurity-f648-amd64 (https://hub.docker.com/r/djmodessa1726/cybersecurity-f648-amd64)
    * - Docker Run Command
-     - --dockerrun--
+     - docker run -d -p 58955:58955 -p 37317:37317 -p 48035:48035 -p 8883:8883 \
+          --env TSS=0 \
+          --env SOLUTIONNAME=cybersecurity-f648 \
+          --env SOLUTIONDAG=solution_preprocessing_ml_ai_mqtt_dag-cybersecurity-f648 \
+          --env GITUSERNAME=darsh123456 \
+          --env GITREPOURL=https://github.com/darsh123456/raspberrypi.git \
+          --env SOLUTIONEXTERNALPORT=58955 \
+          -v /var/run/docker.sock:/var/run/docker.sock:z  \
+          --env CHIP=amd64 \
+          --env SOLUTIONAIRFLOWPORT=37317  \
+          --env SOLUTIONVIPERVIZPORT=48035 \
+          --env DOCKERUSERNAME='djmodessa1726' \
+          --env CLIENTPORT=8883  \
+          --env EXTERNALPORT=38533 \
+          --env KAFKACLOUDUSERNAME='' \
+          --env VIPERVIZPORT=9005 \
+          --env MQTTUSERNAME='djmodessa' \
+          --env AIRFLOWPORT=9000  \
+          --env GITPASSWORD='<Enter Github Password>' \
+          --env KAFKACLOUDPASSWORD='<Enter API secret>' \
+          --env MQTTPASSWORD='<Enter mqtt password>' \
+          --env READTHEDOCS='<Enter Readthedocs token>' \
+          djmodessa1726/cybersecurity-f648-amd64
 
 STEP 9: `tml_system_step_9_privategpt_qdrant_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-9-privategpt-and-qdrant-integration-tml-system-step-9-privategpt-qdrant-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -278,49 +300,49 @@ STEP 9: `tml_system_step_9_privategpt_qdrant_dag <https://tml.readthedocs.io/en/
    * - **User Parameter**
      - **Chosen Value**
    * - PrivateGPT Container
-     - --pgptcontainername--
+     - maadsdocker/tml-privategpt-no-gpu-amd64
    * - PrivateGPT Run Command
-     - --privategptrun--
+     - docker run -d -p 8001:8001 --net=host --gpus all --env PORT=8001 --env GPU=1 --env COLLECTION=tml --env WEB_CONCURRENCY=1 --env CUDA_VISIBLE_DEVICES=0 maadsdocker/tml-privategpt-no-gpu-amd64
    * - Qdrant Container
-     - --qdrantcontainer--
+     - qdrant/qdrant
    * - Qdrant Run Command
-     - --qdrantrun--
+     - docker run -d -p 6333:6333 -v $(pwd)/qdrant_storage:/qdrant/storage:z qdrant/qdrant
    * - Consumefrom
-     - --consumefrom--
+     - 
    * - pgpt_data_topic
-     - --pgpt_data_topic--
+     - cisco-network-privategpt
    * - offset
-     - --offset--
+     - -1
    * - rollbackoffset
-     - --rollbackoffset--
+     - 400
    * - topicid
-     - --topicid--
+     - -999
    * - enabletls
-     - --enabletls--
+     - 1
    * - partition
-     - --partition--
+     - -1
    * - prompt
-     - --prompt--
+     - Do any of the values of the inbound or outbound packets look abnormal?
    * - context
-     - --context--
+     - These data are anomaly probabilities of suspicious data traffic. A high probability of over 0.80 is likely suspicious.
    * - jsonkeytogather
-     - --jsonkeytogather--
+     - hyperprediction
    * - keyattribute
-     - --keyattribute--
+     - outboundpackets,inboundpackets
    * - keyprocesstype
-     - --keyprocesstype--
+     - anomprob
    * - vectordbcollectionname
-     - --vectordbcollectionname--
+     - tml
    * - concurrency
-     - --concurrency--
+     - 1
    * - CUDA_VISIBLE_DEVICES
-     - --cuda--
+     - 0
    * - pgpthost
-     - --pgpthost--
+     - http://127.0.0.1
    * - pgptport
-     - --pgptport--
+     - 8001
    * - hyperbatch
-     - --hyperbatch--
+     - 0
 
 STEP 10: `tml_system_step_10_documentation_dag <https://tml.readthedocs.io/en/latest/tmlbuilds.html#step-10-create-tml-solution-documentation-tml-system-step-10-documentation-dag>`_
 ^^^^^^^^^^^^^^^^^^^^^
@@ -329,4 +351,4 @@ STEP 10: `tml_system_step_10_documentation_dag <https://tml.readthedocs.io/en/la
    * - **User Parameter**
      - **Chosen Value**
    * - Solution Documentation URL
-     - --readthedocs--
+     - https://cybersecurity-f648.readthedocs.io
